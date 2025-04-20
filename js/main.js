@@ -3,10 +3,19 @@ const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
+    const body = document.body;
     
     // Toggle Nav
     burger.addEventListener('click', () => {
+        // Toggle Nav
         nav.classList.toggle('nav-active');
+        
+        // Prevent body scrolling when menu is open
+        if (nav.classList.contains('nav-active')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = 'auto';
+        }
         
         // Animate Links
         navLinks.forEach((link, index) => {
@@ -20,6 +29,19 @@ const navSlide = () => {
         // Burger Animation
         burger.classList.toggle('toggle');
     });
+    
+    // Close menu when clicking on a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('nav-active');
+            burger.classList.remove('toggle');
+            body.style.overflow = 'auto';
+            
+            navLinks.forEach(link => {
+                link.style.animation = '';
+            });
+        });
+    });
 }
 
 // Scroll to sections smoothly when clicking on nav links
@@ -28,16 +50,17 @@ const smoothScroll = () => {
     
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Only prevent default if it's a hash link
-            if (link.getAttribute('href').includes('#')) {
+            // Only prevent default if it's a hash link on the same page
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
                 e.preventDefault();
                 
-                const targetId = link.getAttribute('href').split('#')[1];
-                const targetSection = document.getElementById(targetId);
+                const targetId = href;
+                const targetElement = document.querySelector(targetId);
                 
-                if (targetSection) {
+                if (targetElement) {
                     window.scrollTo({
-                        top: targetSection.offsetTop - 70,
+                        top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 } else {
@@ -188,12 +211,27 @@ const animateOnScroll = () => {
     });
 }
 
+// Add sticky navigation functionality
+const stickyNav = () => {
+    const nav = document.querySelector('nav');
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            nav.classList.add('sticky-nav');
+        } else {
+            nav.classList.remove('sticky-nav');
+        }
+    });
+}
+
 // Initialize all functions when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     navSlide();
     smoothScroll();
     handleFormSubmission();
     highlightActiveSection();
+    stickyNav(); // Add this new function call
     
     // Only run animateOnScroll if IntersectionObserver is supported
     if ('IntersectionObserver' in window) {
@@ -281,3 +319,69 @@ if (burger) {
         burger.classList.toggle('toggle');
     });
 }
+
+// Floating navigation functionality
+const initFloatingNav = () => {
+    const header = document.querySelector('header');
+    const floatingNav = document.querySelector('.floating-nav');
+    const floatingNavToggle = document.querySelector('.floating-nav-toggle');
+    const floatingNavLinks = document.querySelectorAll('.floating-nav-menu a');
+    
+    // Show floating nav when scrolled past header
+    window.addEventListener('scroll', () => {
+        const headerBottom = header.offsetTop + header.offsetHeight;
+        
+        if (window.scrollY > headerBottom - 100) {
+            floatingNav.style.display = 'block';
+        } else {
+            floatingNav.style.display = 'none';
+            floatingNav.classList.remove('active');
+        }
+    });
+    
+    // Toggle floating nav menu
+    floatingNavToggle.addEventListener('click', () => {
+        floatingNav.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    floatingNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            floatingNav.classList.remove('active');
+            
+            // Smooth scroll to section
+            const href = link.getAttribute('href');
+            if (href.startsWith('#')) {
+                const targetElement = document.querySelector(href);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!floatingNav.contains(e.target) && floatingNav.classList.contains('active')) {
+            floatingNav.classList.remove('active');
+        }
+    });
+};
+
+// Add this to your DOMContentLoaded event
+document.addEventListener('DOMContentLoaded', () => {
+    navSlide();
+    smoothScroll();
+    handleFormSubmission();
+    highlightActiveSection();
+    initFloatingNav(); // Add this new function call
+    
+    // Only run animateOnScroll if IntersectionObserver is supported
+    if ('IntersectionObserver' in window) {
+        animateOnScroll();
+    }
+});
