@@ -1,0 +1,602 @@
+/* Projects Page Styles */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --dark-color: #2c3e50;
+  --light-color: #ecf0f1;
+  --accent-color: #e74c3c;
+  --gradient-primary: linear-gradient(135deg, #3498db, #2ecc71);
+}
+
+/* Anular el estilo del header para la página de proyectos */
+.projects-page header {
+  height: 50vh !important;
+  /* Reducir a la mitad de la altura original */
+  min-height: 300px !important;
+  /* Establecer una altura mínima */
+  position: relative !important;
+  /* Cambiar de fixed a relative */
+  overflow: visible !important;
+  /* Permitir que el contenido fluya */
+}
+
+/* Ajustar el espacio del contenido principal */
+.projects-page {
+  padding-top: 0px !important;
+  /* Reducir el padding superior */
+  overflow: auto !important;
+  /* Asegurar que el contenido se pueda desplazar */
+  height: auto !important;
+  /* Altura automática basada en el contenido */
+}
+
+/* Asegurar que el contenido principal sea desplazable */
+main {
+  overflow: auto !important;
+  height: auto !important;
+}
+
+/* Asegurar que el body permita desplazamiento */
+body.projects-page {
+  overflow-y: auto !important;
+  height: auto !important;
+}
+
+/* Ajustar la posición de los elementos dentro del header */
+.projects-page .side-image-container {
+  height: 100% !important;
+  top: 0 !important;
+}
+
+/* Ajustar el padding superior de la sección principal */
+.projects-page #projects {
+  padding-top: 20px !important;
+  /* Reducir el padding superior */
+}
+
+/* Mantener los estilos de navegación y otros elementos del header */
+.projects-page .nav-links li a {
+  color: white !important;
+  /* Mantener el color del texto igual que en el index */
+}
+
+.projects-page .nav-links li a:hover {
+  color: var(--light-color) !important;
+}
+
+.projects-page .burger div {
+  background-color: white !important;
+}
+
+.projects-page {
+  padding-top: 80px;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.05) 0%, rgba(46, 204, 113, 0.05) 100%);
+  z-index: 0;
+}
+
+.projects-page .container {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-page .section-title {
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--dark-color);
+  position: relative;
+}
+
+.projects-page .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.category-title {
+  margin: 40px 0 20px;
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  position: relative;
+  display: inline-block;
+  padding-left: 15px;
+}
+
+.category-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.project-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.project-image {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-info {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-info h3 {
+  margin-bottom: 15px;
+  color: var(--dark-color);
+  font-size: 1.4rem;
+}
+
+/* Estilos para el texto truncado y botón "Ver más" */
+.project-info p {
+  flex-grow: 1;
+  margin-bottom: 15px;
+  overflow: hidden;
+  word-wrap: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  position: relative;
+}
+
+/* Estilos mejorados para el botón "Ver más" */
+.read-more-btn {
+  color: #0078ff;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: -5px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+.read-more-btn:hover {
+  color: #005bb7;
+  transform: translateY(-2px);
+}
+
+/* Estilos mejorados para el modal de información */
+.info-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.info-modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 30px;
+  border: none;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 12px;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.4s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close-info-modal {
+  color: #888;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  transition: all 0.3s ease;
+}
+
+.close-info-modal:hover,
+.close-info-modal:focus {
+  color: #333;
+  text-decoration: none;
+  transform: rotate(90deg);
+}
+
+.info-modal-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-right: 30px;
+  color: #333;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #0078ff;
+  padding-bottom: 10px;
+}
+
+.info-modal-description {
+  line-height: 1.6;
+  color: #555;
+  font-size: 1.1rem;
+}
+
+.project-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.project-date,
+.project-type {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.project-date i,
+.project-type i {
+  color: var(--primary-color);
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-stack span {
+  background: rgba(52, 152, 219, 0.1);
+  color: var(--primary-color);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.tech-stack span:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+.project-links {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.project-links .btn {
+  flex: 1;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.project-links .view-btn {
+  background: var(--gradient-primary);
+  color: white;
+  border: none;
+}
+
+.project-links .view-btn:hover {
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.project-links .source-btn {
+  background: transparent;
+  color: var(--dark-color);
+  border: 1px solid #ddd;
+}
+
+.project-links .source-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: #ccc;
+}
+
+.project-details {
+  margin-top: 30px;
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-details h4 {
+  margin-bottom: 15px;
+  color: var(--dark-color);
+  font-size: 1.2rem;
+}
+
+.project-details ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.project-details li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.center-btn {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.center-btn .btn {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.center-btn .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.project-gallery {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.gallery-item {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-gallery {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+
+/* Estilos para el modal de videos */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.close-modal,
+.close-image-modal {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  z-index: 1001;
+}
+
+.close-modal:hover,
+.close-modal:focus,
+.close-image-modal:hover,
+.close-image-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Estilos para la galería de imágenes */
+.gallery-image {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+}
+
+#modalImage {
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+/* Eliminar el espacio en blanco encima del header */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body.projects-page {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.projects-page header {
+  margin-top: 0;
+  top: 0;
+  position: relative;
+}
+
+/* Estilos para la transición entre páginas */
+.projects-page header {
+  transition: height 0.5s ease, background 0.5s ease !important;
+}
+
+/* Estilo para el enlace de inicio cuando se hace clic */
+.projects-page .nav-links li a[href="../index.html#home"] {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-page .nav-links li a[href="../index.html#home"]:active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Añadir un efecto de flash al hacer clic en el enlace de inicio */
+.nav-transition {
+  animation: flash-transition 0.5s;
+}
+
+@keyframes flash-transition {
+  0% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}

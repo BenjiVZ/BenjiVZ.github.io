@@ -1,0 +1,8 @@
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* Media queries for specific components are included in their respective files */

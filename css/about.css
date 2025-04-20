@@ -1,0 +1,87 @@
+/* About Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* About Page Specific Styles */
+.about-page {
+    padding-top: 120px;
+}
+
+.about-text h2 {
+    color: #2d3e50;
+    margin: 30px 0 15px;
+    font-size: 1.8rem;
+}
+
+.about-text h2:first-child {
+    margin-top: 0;
+}
+
+.education-list {
+    margin-left: 20px;
+}
+
+.education-list li {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.education-list li::before {
+    content: '•';
+    position: absolute;
+    left: -20px;
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+.degree {
+    display: block;
+    font-weight: 600;
+    color: #2d3e50;
+}
+
+.school, .year {
+    display: block;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.experience-item {
+    margin-bottom: 25px;
+}
+
+.experience-item h3 {
+    margin-bottom: 5px;
+    color: #2d3e50;
+}
+
+.company {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+}

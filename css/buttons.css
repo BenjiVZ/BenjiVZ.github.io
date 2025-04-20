@@ -1,0 +1,89 @@
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: #3498db;
+    color: white;
+    border: 2px solid #3498db;
+}
+
+.primary-btn:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.secondary-btn:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.small-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+.center-btn {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .cta-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.project-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.project-links .btn {
+    min-width: 120px;
+    text-align: center;
+}
+
+.project-links .connect-btn {
+    background-color: #0077b5; /* LinkedIn blue */
+    color: white;
+    border: 2px solid #0077b5;
+}
+
+.project-links .connect-btn:hover {
+    background-color: #005582;
+    border-color: #005582;
+}
+
+.project-links .info-btn {
+    background-color: transparent;
+    color: #3498db;
+    border: 2px solid #3498db;
+}
+
+.project-links .info-btn:hover {
+    background-color: #3498db;
+    color: white;
+}

@@ -1,0 +1,173 @@
+/* Main CSS file that imports all modular CSS files */
+
+@import 'base.css';
+@import 'buttons.css';
+@import 'header.css';
+@import 'hero.css';
+@import 'about.css';
+@import 'projects.css';
+@import 'skills.css';
+@import 'contact.css';
+@import 'cv.css';
+@import 'footer.css';
+@import 'animations.css';
+@import 'responsive.css';
+
+/* Botón animado para "Ver Todos los Proyectos" */
+.animated-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 35px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: white !important;
+    background: linear-gradient(135deg, #3498db, #2ecc71, #e74c3c) !important;
+    background-size: 300% 300% !important;
+    border-radius: 50px !important;
+    border: none !important;
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.5) !important;
+    overflow: hidden !important;
+    transition: all 0.5s ease !important;
+    animation: gradientShift 5s ease infinite !important;
+    transform: translateY(0) !important;
+}
+
+.animated-btn:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 15px 30px rgba(52, 152, 219, 0.7) !important;
+    letter-spacing: 1px !important;
+}
+
+.animated-btn:active {
+    transform: translateY(2px) !important;
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4) !important;
+}
+
+.animated-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.animated-btn:hover::before {
+    left: 100%;
+}
+
+.btn-content {
+    position: relative;
+    z-index: 1;
+}
+
+.btn-icon {
+    margin-left: 10px;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+}
+
+.animated-btn:hover .btn-icon {
+    transform: translateX(5px);
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Añadir un efecto de pulso */
+.animated-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(52, 152, 219, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+}
+
+/* Animación para que el header crezca */
+@keyframes headerGrow {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.grow-animation {
+    animation: headerGrow 1.2s ease-out forwards;
+    transform-origin: center;
+}
+
+/* Animación para los elementos dentro del header */
+.grow-animation .logo-container,
+.grow-animation nav,
+.grow-animation .header-info {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.grow-animation .header-info {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de hover para el header */
+.grow-animation:hover {
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* YouTube button style */
+.youtube-btn {
+    background: linear-gradient(135deg, #FF0000, #CC0000) !important;
+    color: white !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.youtube-btn:hover {
+    background: linear-gradient(135deg, #CC0000, #FF0000) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3) !important;
+}
+
+/* Add a hover effect for the YouTube icon in social links */
+.social-links a .fa-youtube:hover {
+    color: #FF0000;
+    transform: scale(1.2);
+}

@@ -1,0 +1,218 @@
+/* Contact Section Styles */
+.contact-section {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+/* Left side contact info styling */
+.contact-info {
+    background: rgba(10, 30, 60, 0.7);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 24px;
+    color: #3498db;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-item p {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 22px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* Right side contact CTA styles */
+.contact-cta {
+    background: rgba(10, 30, 60, 0.7);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.contact-message h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: white;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.contact-message h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, #3498db, #2ecc71);
+}
+
+.contact-message p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.contact-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact-buttons .whatsapp-btn {
+    background: linear-gradient(45deg, #25D366, #128C7E);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.contact-buttons .whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.availability-indicator {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.availability-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.status-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #2ecc71;
+    display: inline-block;
+    position: relative;
+}
+
+.status-dot:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #2ecc71;
+    top: -6px;
+    left: -6px;
+    animation: pulse 2s infinite;
+}
+
+.status-text {
+    font-weight: 600;
+    color: #2ecc71;
+}
+
+.response-time {
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.8;
+    }
+    70% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-buttons {
+        flex-direction: column;
+    }
+    
+    .contact-cta, .contact-info {
+        padding: 30px;
+    }
+}
